@@ -11,30 +11,20 @@
 
 	<h1>Search Films</h1>
 
-	<!--  Single Film (Smoke Test) -->
-	<c:choose>
-		<c:when test="${empty film}">
-			<!-- NAVIGATION -->
-			<ul>
-				<li><a href="searchId.do">Search Film by ID</a></li>
-				<li><a href="searchKeyword.do">Search Film by Keyword</a></li>
-				<li><a href="showFilm.do">Show Film Details</a></li>
-				<li><a href="editFilm.do">Edit Film</a></li>
-			</ul>
-		</c:when>
-		<c:when test="${not empty film}">
-			<ul>
-				<li>${film.id}</li>
-				<li>${film.title}</li>
-				<li>${film.description}</li>
-				<li>${film.rating}</li>
-				<li><a href="/MVCFilmSite">Return Home</a></li>
-			</ul>
-		</c:when>
-		<c:otherwise>
-			<p>No film found</p>
-		</c:otherwise>
-	</c:choose>
+	<ul>
+		<li><a href="searchId.do">Search Film by ID</a></li>
+		<li><a href="searchKeyword.do">Search Film by Keyword</a></li>
+		<li><a href="showFilm.do">Show Film Details</a></li>
+		<li><a href="editFilm.do">Edit Film</a></li>
+	</ul>
+<form action="searchId.do" method ="post">
+  <label for="filmId">Film Id:</label>
+  <input type="text" name="filmId"/>
+  <input type="submit"/>
+</form>
+
+
+
 
 </body>
 </html>
