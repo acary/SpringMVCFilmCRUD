@@ -82,40 +82,45 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 	/***** CREATE FILM *****/
 	public Film createFilm(Film film) {
 		Connection conn = null;
+		int newFilmId = 0;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-
-			String sql = "INSERT INTO film (title, language_id) " + " VALUES (?, 1)";
+			String sql = "INSERT INTO film (title, language_id) VALUES (?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getLanguageId());
 			int updateCount = stmt.executeUpdate();
-			if (updateCount == 1) {
-				ResultSet keys = stmt.getGeneratedKeys();
-				if (keys.next()) {
-					int newFilmId = keys.getInt(1);
-					film.setId(newFilmId);
-					System.out.println("Added new film with ID: " + film.getId());
+			System.out.println(updateCount + " record created.");
+			ResultSet keys = stmt.getGeneratedKeys();
+			String sql2 = "UPDATE film SET description = ?, release_year = ?, rating = ? WHERE film.id = ?";
+			PreparedStatement stmt2 = conn.prepareStatement(sql2);
+			stmt2.setString(1, film.getDescription());
+			stmt2.setInt(2, film.getReleaseYear());
+			stmt2.setString(3, film.getRating());
+			while (keys.next()) {
+				System.out.println("New film ID: " + keys.getInt(1));
+				newFilmId = keys.getInt(1);
+				stmt2.setInt(4, newFilmId);
+				int uc = stmt2.executeUpdate();
+				if (uc == 1) {
+					conn.commit(); // COMMIT TRANSACTION
 				}
-				keys.close();
-			} else {
-				film = null;
 			}
-			conn.commit(); // COMMIT TRANSACTION
-			stmt.close();
-			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
 				try {
 					conn.rollback();
-				} catch (SQLException sqle2) {
+				} // ROLLBACK TRANSACTION ON ERROR
+				catch (SQLException sqle2) {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting film " + film);
+			return null;
 		}
-		return film;
+		Film newFilm = findFilmById(newFilmId);
+		return newFilm;
 	}
 
 	/***** CREATE ACTOR *****/

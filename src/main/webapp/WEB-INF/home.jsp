@@ -20,6 +20,7 @@
 				<li><a href="searchKeyword.do">Search Film by Keyword</a></li>
 				<li><a href="showFilm.do">Show Film Details</a></li>
 				<li><a href="editFilm.do">Edit Film</a></li>
+				<li><a href="addFilm.do">Add Film</a></li>
 			</ul>
 		</c:when>
 		<c:when test="${not empty film}">

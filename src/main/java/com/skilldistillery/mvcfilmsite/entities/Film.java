@@ -22,6 +22,12 @@ public class Film {
 	public Film() {
 		super();
 	}
+	
+	public Film(String title, String languageId) {
+		super();
+		this.title = title;
+		this.languageId = languageId;
+	}
 
 	public Film(int id, String title, String description, int releaseYear, String rating) {
 		super();

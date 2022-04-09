@@ -66,5 +66,29 @@ public class FilmController {
 		mv.setViewName("WEB-INF/editFilm.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
+	public ModelAndView addFilmGet() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/addFilm.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "addFilm.do", 
+			params = {"filmTitle", "filmDescription", "filmReleaseYear", "filmRating"}, 
+			method = RequestMethod.POST)
+	public ModelAndView addFilmPost(String filmTitle, String filmDescription, String filmReleaseYear, String filmRating) {
+		ModelAndView mv = new ModelAndView();
+		Film film = new Film();
+		film.setTitle(filmTitle);
+		film.setDescription(filmDescription);
+		film.setReleaseYear(Integer.valueOf(filmReleaseYear));
+		film.setRating(filmRating);
+		film.setLanguageId("1");
+		film = filmDao.createFilm(film);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/showFilm.jsp");
+		return mv;
+	}
 
 }
