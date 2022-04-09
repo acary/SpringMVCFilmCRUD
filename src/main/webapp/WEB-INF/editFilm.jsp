@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<h1>Film Site</h1>
+	<h1>Edit Film</h1>
 
 	<!--  Single Film (Smoke Test) -->
 	<c:choose>

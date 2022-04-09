@@ -20,12 +20,39 @@ public class FilmController {
 		return "WEB-INF/home.jsp";
 	}
 	
-	@RequestMapping(path = "test.do", method = RequestMethod.GET)
+	@RequestMapping(path = "searchId.do", method = RequestMethod.GET)
 	public ModelAndView getFilmById() {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(1);
 		mv.addObject("film", film);
-		mv.setViewName("WEB-INF/home.jsp");
+		mv.setViewName("WEB-INF/search.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "searchKeyword.do", method = RequestMethod.GET)
+	public ModelAndView getFilmByKeyword() {
+		ModelAndView mv = new ModelAndView();
+		Film film = filmDao.findFilmById(1);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/search.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "showFilm.do", method = RequestMethod.GET)
+	public ModelAndView getFilmDetails() {
+		ModelAndView mv = new ModelAndView();
+		Film film = filmDao.findFilmById(1);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/showFilm.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
+	public ModelAndView editFilm() {
+		ModelAndView mv = new ModelAndView();
+		Film film = filmDao.findFilmById(1);
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/editFilm.jsp");
 		return mv;
 	}
 
