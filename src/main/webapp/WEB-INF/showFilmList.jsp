@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<h1>Film Details POTATO POTATOE</h1>
+	<h1>Film Details</h1>
 
 	<!--  Single Film (Smoke Test) -->
 	<c:choose>
