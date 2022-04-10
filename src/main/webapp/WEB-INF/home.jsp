@@ -68,7 +68,7 @@
 					<svg class="bi me-2" width="40" height="32">
 						<use xlink:href="#bootstrap" /></svg>
 				</a>
-				<p class="text-muted">&copy; 2021</p>
+				<p class="text-muted">&copy; 2022</p>
 			</div>
 
 			<div class="col"></div>
