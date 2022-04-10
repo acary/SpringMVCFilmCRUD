@@ -29,17 +29,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="searchId.do">Search By ID</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="searchKeyword.do">Search by Keyword</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Search </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="searchId.do">Film By
+										ID</a></li>
+								<li><a class="dropdown-item" href="searchKeyword.do">Film
+										By Keyword</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
 								Film</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	<h4>Film Details</h4>
+		<br>
+		<h4>Film Details</h4>
 
 		<c:choose>
 			<c:when test="${empty film}">
@@ -48,14 +55,15 @@
 			<c:when test="${not empty film}">
 				<c:forEach var="f" items="${film}">
 					<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<a href="showFilm.do?filmId=${f.id}" class="text-decoration-none"><h5 class="card-title">${f.title}</h5></a>
-						<h6 class="card-subtitle mb-2 text-muted">${f.releaseYear}</h6>
-						<span class="badge bg-warning text-dark">${f.rating}</span>
-						<p class="card-text">${f.description}</p>
-						<span class="badge rounded-pill bg-success">${f.category}</span>
-						<span class="badge rounded-pill bg-primary my-1">ID
-							${f.id}</span>
+						<div class="card-body">
+							<a href="showFilm.do?filmId=${f.id}" class="text-decoration-none"><h5
+									class="card-title">${f.title}</h5></a>
+							<h6 class="card-subtitle mb-2 text-muted">${f.releaseYear}</h6>
+							<span class="badge bg-warning text-dark">${f.rating}</span>
+							<p class="card-text">${f.description}</p>
+							<span class="badge rounded-pill bg-success">${f.category}</span>
+							<span class="badge rounded-pill bg-primary my-1">ID
+								${f.id}</span>
 						</div>
 					</div>
 				</c:forEach>
@@ -65,8 +73,8 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	
-		<div class="container">
+
+	<div class="container">
 		<footer class="row row-cols-5 py-5 my-5 border-top">
 			<div class="col">
 				<a href="/"
@@ -106,7 +114,7 @@
 			</div>
 		</footer>
 	</div>
-	
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

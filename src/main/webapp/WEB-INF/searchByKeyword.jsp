@@ -29,10 +29,16 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="searchId.do">Search By ID</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="searchKeyword.do">Search by Keyword</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Search </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="searchId.do">Film By
+										ID</a></li>
+								<li><a class="dropdown-item" href="searchKeyword.do">Film
+										By Keyword</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
 								Film</a></li>
 					</ul>
@@ -42,8 +48,11 @@
 		<br>
 		<h4>Search Films</h4>
 		<form action="searchKeyword.do" method="POST">
-			<label for="keyword" class="form-label">Enter Film Keyword</label> <input type="text"
-				name="keyword" class="form-control form-control-lg" /> <input type="submit" class="btn btn-primary m-2" value="Search">
+			<label for="keyword" class="form-label">Enter Film Keyword</label> 
+			<small>(or <a href="searchId.do"> search by ID</a>)</small>
+			<input
+				type="text" name="keyword" class="form-control form-control-lg" />
+			<input type="submit" class="btn btn-primary m-2" value="Search">
 		</form>
 	</div>
 	<script
