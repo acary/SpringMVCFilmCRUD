@@ -33,8 +33,6 @@
 							aria-current="page" href="searchId.do">Search By ID</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="searchKeyword.do">Search by Keyword</a></li>
-						<li class="nav-item"><a class="nav-link" href="editFilm.do">Edit
-								Film</a></li>
 						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
 								Film</a></li>
 					</ul>
