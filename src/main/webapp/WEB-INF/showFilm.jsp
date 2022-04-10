@@ -69,9 +69,8 @@
 						</ul>
 					</li>
 					<li>Category: ${film.category}</li>
-					<li><a href="/MVCFilmSite">Return Home</a></li>
-					<li><a href="deleteFilm.do?filmId=${film.id }">Delete This
-							Film</a></li>
+					<li><a href="deleteFilm.do?filmId=${film.id}">Delete Film</a></li>
+					<li><a href="editFilm.do?filmId=${film.id}">Edit Film</a></li>
 				</ul>
 			</c:when>
 			<c:otherwise>
