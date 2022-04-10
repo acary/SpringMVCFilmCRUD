@@ -40,18 +40,19 @@
 				</div>
 			</div>
 		</nav>
+		
+		<br>
 		<h4>Add New Film</h4>
-
 		<form action="addFilm.do" method="post">
 
 			<label for="filmTitle" class="form-label">Film Title:</label> <input
-				type="text" name="filmTitle" class="form-control" /> <br> <label
+				type="text" name="filmTitle" class="form-control form-control-lg" /> <br> <label
 				for="filmDescription" class="form-label">Description:</label> <input
-				type="text" name="filmDescription" class="form-control" /> <br>
+				type="text" name="filmDescription" class="form-control form-control-lg" /> <br>
 			<label for="filmReleaseYear" class="form-label">Release Year:</label>
-			<input type="text" name="filmReleaseYear" class="form-control" /> <br>
+			<input type="text" name="filmReleaseYear" class="form-control form-control-lg" /> <br>
 			<label for="filmRating" class="form-label">Rating:</label> <input
-				type="text" name="filmRating" class="form-control" /> <br> <input
+				type="text" name="filmRating" class="form-control form-control-lg" /> <br> <input
 				type="submit" class="btn btn-primary m-2" value="Add Film" />
 		</form>
 
