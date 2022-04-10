@@ -42,8 +42,8 @@
 		<h4>Search Films</h4>
 
 		<form action="searchKeyword.do" method="POST">
-			<label for="keyword">Enter Film Keyword</label> <input type="text"
-				name="keyword" /> <input type="submit" value="Submit">
+			<label for="keyword" class="form-label">Enter Film Keyword</label> <input type="text"
+				name="keyword" class="form-control" /> <input type="submit" class="btn btn-primary m-2" value="Search">
 		</form>
 	</div>
 	<script

@@ -44,13 +44,15 @@
 
 		<form action="addFilm.do" method="post">
 
-			<label for="filmTitle">Film Title:</label> <input type="text"
-				name="filmTitle" /> <br> <label for="filmDescription">Description:</label>
-			<input type="text" name="filmDescription" /> <br> <label
-				for="filmReleaseYear">Release Year:</label> <input type="text"
-				name="filmReleaseYear" /> <br> <label for="filmRating">Rating:</label>
-			<input type="text" name="filmRating" /> <br> <input
-				type="submit" />
+			<label for="filmTitle" class="form-label">Film Title:</label> <input
+				type="text" name="filmTitle" class="form-control" /> <br> <label
+				for="filmDescription" class="form-label">Description:</label> <input
+				type="text" name="filmDescription" class="form-control" /> <br>
+			<label for="filmReleaseYear" class="form-label">Release Year:</label>
+			<input type="text" name="filmReleaseYear" class="form-control" /> <br>
+			<label for="filmRating" class="form-label">Rating:</label> <input
+				type="text" name="filmRating" class="form-control" /> <br> <input
+				type="submit" class="btn btn-primary m-2" value="Add Film" />
 		</form>
 
 	</div>

@@ -42,8 +42,8 @@
 		<h4>Search Films</h4>
 
 		<form action="searchId.do" method="post">
-			<label for="filmId">Film Id:</label> <input type="text" name="filmId" />
-			<input type="submit" />
+			<label for="filmId" class="form-label">Enter Film ID</label> <input type="text" class="form-control" name="filmId" />
+			<input type="submit" class="btn btn-primary m-2" value="Search"/>
 		</form>
 	</div>
 	<script
