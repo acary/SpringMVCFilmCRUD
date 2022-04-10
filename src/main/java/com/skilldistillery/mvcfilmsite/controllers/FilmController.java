@@ -136,7 +136,7 @@ public class FilmController {
 				if (film !=null) {
 			
 					if (filmDao.deleteFilm(film)) {
-						mv.addObject("result", "Movie was deleted");
+						mv.addObject("result", "Movie was successfully deleted");
 						mv.setViewName("/WEB-INF/home.jsp");
 					}
 					
