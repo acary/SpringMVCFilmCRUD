@@ -28,6 +28,8 @@
 				<li>${film.title}</li>
 				<li>${film.description}</li>
 				<li>${film.rating}</li>
+				<li>${film.actors}</li>
+				<li>${film.category}</li>
 				<li><a href="/MVCFilmSite">Return Home</a></li>
 				<li><a href="deleteFilm.do?filmId=${film.id }">Delete This Film</a></li>
 			</ul>

@@ -67,6 +67,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(1);
 		mv.addObject("film", film);
+	//	mv.addObject("actors", filmDao.findActorsByFilmId(film.getId()));
 		mv.setViewName("WEB-INF/showFilm.jsp");
 		return mv;
 	}
