@@ -11,7 +11,6 @@
 
 	<h1>Film Details</h1>
 
-	<!--  Single Film (Smoke Test) -->
 	<c:choose>
 		<c:when test="${empty film}">
 			<!-- NAVIGATION -->
@@ -20,6 +19,7 @@
 				<li><a href="searchKeyword.do">Search Film by Keyword</a></li>
 				<li><a href="showFilm.do">Show Film Details</a></li>
 				<li><a href="editFilm.do">Edit Film</a></li>
+				<li><a href="/MVCFilmSite">Return Home</a></li>
 			</ul>
 		</c:when>
 		<c:when test="${not empty film}">
@@ -29,6 +29,7 @@
 				<li>${film.description}</li>
 				<li>${film.rating}</li>
 				<li><a href="/MVCFilmSite">Return Home</a></li>
+				<li><a href="deleteFilm.do?filmId=${film.id }">Delete This Film</a></li>
 			</ul>
 		</c:when>
 		<c:otherwise>

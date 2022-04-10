@@ -1,11 +1,10 @@
 package com.skilldistillery.mvcfilmsite.controllers;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.mvcfilmsite.data.FilmDAO;
@@ -35,7 +34,7 @@ public class FilmController {
 	public ModelAndView searchFilmById(String filmId) {
 		ModelAndView mv = new ModelAndView();
 		Integer filmIntId = Integer.valueOf(filmId);
-		
+
 		Film film = filmDao.findFilmById(filmIntId);
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/showFilm.jsp");
@@ -60,10 +59,6 @@ public class FilmController {
 		List<Film> film = filmDao.findFilmByKeyword(keyword);
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/showFilmList.jsp");
-//		mv.addAllObjects(List<Film>);
-//		for (Film film2 : film) {
-//			
-//		}
 		return mv;
 	}
 
@@ -109,4 +104,26 @@ public class FilmController {
 		return mv;
 	}
 
+	@RequestMapping(path = "deleteFilm.do", params = "filmId", method = RequestMethod.GET)
+	public ModelAndView deleteFilm(@RequestParam("filmId") String filmId) {
+		ModelAndView mv = new ModelAndView();
+		
+			int id = Integer.parseInt(filmId);
+			Film film = filmDao.findFilmById(id);
+			
+				if (film !=null) {
+			
+					if (filmDao.deleteFilm(film)) {
+						mv.addObject("result", "Movie was deleted");
+						mv.setViewName("/WEB-INF/home.jsp");
+					}
+					
+				} else {
+					mv.addObject("result", "Movie was not deleted");
+					mv.setViewName("/WEB-INF/showFilm.jsp");				
+				} 
+			
+		return mv;
+	
+	}
 }
