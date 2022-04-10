@@ -59,6 +59,10 @@
 				<label for="filmRating" class="form-label">Rating</label> <input
 					type="text" class="form-control" name="filmRating" id="filmRating" placeholder="${film.rating}">
 			</div>
+			<div class="mb-3">
+				<label for="filmReleaseYear" class="form-label">Release Year</label> <input
+					type="text" class="form-control" name="filmReleaseYear" id="filmReleaseYear" placeholder="${film.releaseYear}">
+			</div>
 			<input type="submit" class="btn btn-primary">
 		</form>
 

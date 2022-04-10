@@ -41,7 +41,7 @@
 				</div>
 			</div>
 		</nav>
-		<h4>>Film Details</h4>
+	<h4>Film Details</h4>
 
 		<c:choose>
 			<c:when test="${empty film}">
@@ -58,13 +58,11 @@
 			<c:when test="${not empty film}">
 				<ul>
 					<c:forEach var="f" items="${film}">
-						<li>${f.id}</li>
-						<li>${f.title}</li>
+						<li><a href="showFilm.do?filmId=${f.id}">${f.title}</a></li>
 						<li>${f.description}</li>
 						<li>${f.rating}</li>
 					</c:forEach>
-
-					<li><a href="/MVCFilmSite">Return Home</a></li>
+					<br>
 				</ul>
 			</c:when>
 			<c:otherwise>

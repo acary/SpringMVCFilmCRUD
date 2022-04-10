@@ -45,15 +45,8 @@
 
 		<c:choose>
 			<c:when test="${empty film}">
-				<!-- NAVIGATION -->
-				<ul>
-					<li><a href="/MVCFilmSite">Home</a></li>
-					<li><a href="searchId.do">Search Film by ID</a></li>
-					<li><a href="searchKeyword.do">Search Film by Keyword</a></li>
-					<li><a href="showFilm.do">Show Film Details</a></li>
-					<li><a href="editFilm.do">Edit Film</a></li>
-					<li><a href="addFilm.do">Add Film</a></li>
-				</ul>
+				<p>No Film Found. Please Try Again.
+				</p>
 			</c:when>
 			<c:when test="${not empty film}">
 				<ul>
@@ -61,6 +54,7 @@
 					<li>Title: ${film.title}</li>
 					<li>Description: ${film.description}</li>
 					<li>Rating: ${film.rating}</li>
+					<li>Release Year: ${film.releaseYear}</li>
 					<li>Actors:
 						<ul>
 							<c:forEach var="actor" items="${film.actors}">
