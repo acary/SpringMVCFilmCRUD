@@ -82,6 +82,23 @@ public class FilmController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "updateFilm.do", 
+			params = {"filmId", "filmTitle", "filmDescription", "filmRating"}, 
+			method = RequestMethod.GET)
+	public ModelAndView editFilmPost(String filmId, String filmTitle, String filmDescription, String filmRating) {
+		ModelAndView mv = new ModelAndView();
+		Integer filmIntId = Integer.valueOf(filmId);
+		Film film = filmDao.findFilmById(filmIntId);
+		film.setTitle(filmTitle);
+		film.setDescription(filmDescription);
+		film.setRating(filmRating);
+		filmDao.updateFilm(film);
+		film = filmDao.findFilmById(film.getId());
+		mv.addObject("film", film);
+		mv.setViewName("WEB-INF/showFilm.jsp");
+		return mv;
+	}
+	
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
 	public ModelAndView addFilmGet() {
 		ModelAndView mv = new ModelAndView();

@@ -43,32 +43,25 @@
 		</nav>
 		<h4>Edit Film</h4>
 
-		<!--  Single Film (Smoke Test) -->
-		<c:choose>
-			<c:when test="${empty film}">
-				<!-- NAVIGATION -->
-				<ul>
-					<li><a href="/MVCFilmSite">Home</a></li>
-					<li><a href="searchId.do">Search Film by ID</a></li>
-					<li><a href="searchKeyword.do">Search Film by Keyword</a></li>
-					<li><a href="showFilm.do">Show Film Details</a></li>
-					<li><a href="editFilm.do">Edit Film</a></li>
-					<li><a href="addFilm.do">Add Film</a></li>
-				</ul>
-			</c:when>
-			<c:when test="${not empty film}">
-				<ul>
-					<li>${film.id}</li>
-					<li>${film.title}</li>
-					<li>${film.description}</li>
-					<li>${film.rating}</li>
-					<li><a href="/MVCFilmSite">Return Home</a></li>
-				</ul>
-			</c:when>
-			<c:otherwise>
-				<p>No film found</p>
-			</c:otherwise>
-		</c:choose>
+		<form action="updateFilm.do" method="get">
+			<input type="hidden" id="filmId" name="filmId" value="${film.id}">
+			<div class="mb-3">
+				<label for="filmTitle" class="form-label">Title</label> <input
+					type="text" class="form-control" name="filmTitle" id="filmTitle" placeholder="${film.title}">
+				<div id="filmTitleHelp" class="form-text">Update the film
+					title</div>
+			</div>
+			<div class="mb-3">
+				<label for="filmDescription" class="form-label">Description</label>
+				<input type="text" class="form-control" name="filmDescription" id="filmDescription" placeholder="${film.description}">
+			</div>
+			<div class="mb-3">
+				<label for="filmRating" class="form-label">Rating</label> <input
+					type="text" class="form-control" name="filmRating" id="filmRating" placeholder="${film.rating}">
+			</div>
+			<input type="submit" class="btn btn-primary">
+		</form>
+
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
