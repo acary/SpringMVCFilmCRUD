@@ -43,28 +43,36 @@
 
 		<c:choose>
 			<c:when test="${empty film}">
-				<p>No Film Found. Please Try Again.
-				</p>
+				<p>No Film Found. Please Try Again.</p>
 			</c:when>
 			<c:when test="${not empty film}">
-				<ul>
-					<li>ID: ${film.id}</li>
-					<li>Title: ${film.title}</li>
-					<li>Description: ${film.description}</li>
-					<li>Rating: ${film.rating}</li>
-					<li>Release Year: ${film.releaseYear}</li>
-					<li>Actors:
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title">${film.title}</h5>
+						<h6 class="card-subtitle mb-2 text-muted">${film.id}</h6>
+						<h6 class="card-subtitle mb-2 text-muted">${film.releaseYear}</h6>
+						<h6 class="card-subtitle mb-2 text-muted">${film.rating}</h6>
+						<h6 class="card-subtitle mb-2 text-muted">${film.category}</h6>
+						<p class="card-text">${film.description}</p>
 						<ul>
 							<c:forEach var="actor" items="${film.actors}">
 								<li>${actor.firstName}${actor.lastName}</li>
 							</c:forEach>
 						</ul>
-					</li>
-					<li>Category: ${film.category}</li>
-					<li><a href="deleteFilm.do?filmId=${film.id}">Delete Film</a></li>
-					<li><a href="editFilm.do?filmId=${film.id}">Edit Film</a></li>
-				</ul>
+					<!-- 	<a href="#" class="card-link">Card link</a> <a href="#"
+							class="card-link">Another link</a> -->
+					<a href="deleteFilm.do?filmId=${film.id}" class="card-link"> Delete </a>
+					<a href="editFilm.do?filmId=${film.id}" class="card-link"> Edit  </a>
+					</div>
+				</div>
+
+
+				
+
+				
 			</c:when>
+			
+			
 			<c:otherwise>
 				<p>No film found</p>
 			</c:otherwise>
