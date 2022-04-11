@@ -51,7 +51,7 @@
 			<c:choose>
 				<c:when test="${not empty newActor}">
 						
-		<div class="alert alert-success" role="alert">"${newActor}"></div>
+		<div class="alert alert-success" role="alert">Successfully added a new actor with ID=${newActor.id}</div>
 
 				</c:when>
 				<c:otherwise>
@@ -60,7 +60,7 @@
 			</c:choose>
 			<br> <br>
 			<form action="newActor.do" method="GET">
-				Please enter actor ID to confirm deletion: <input class="input"
+				Please enter actor ID to delete: <input class="input"
 					type="text" name="id"> <input class="submit" type="submit"
 					value="Delete Actor" />
 			</form>
