@@ -39,12 +39,19 @@
 								<li><a class="dropdown-item" href="searchKeyword.do">Film
 										By Keyword</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
-								Film</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Add New</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="addFilm.do">Film</a></li>
+								<li><a class="dropdown-item" href="addActor.do">Actor</a></li>
+							</ul></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+		<br>
 		<h4>Edit Film</h4>
 
 		<form action="updateFilm.do" method="get">
@@ -59,7 +66,7 @@
 				<label for="filmDescription" class="form-label">Description</label>
 				<input type="text" class="form-control" name="filmDescription"
 					id="filmDescription" placeholder="${film.description}">
-					<div id="filmDescriptionHelp" class="form-text">${film.description}</div>
+				<div id="filmDescriptionHelp" class="form-text">${film.description}</div>
 			</div>
 			<div class="mb-3">
 				<label for="filmRating" class="form-label">Rating</label> <input
@@ -71,12 +78,55 @@
 				<label for="filmReleaseYear" class="form-label">Release Year</label>
 				<input type="text" class="form-control" name="filmReleaseYear"
 					id="filmReleaseYear" placeholder="${film.releaseYear}">
-					<div id="filmReleaseYearHelp" class="form-text">${film.releaseYear}</div>
+				<div id="filmReleaseYearHelp" class="form-text">${film.releaseYear}</div>
 			</div>
 			<input type="submit" class="btn btn-primary">
 		</form>
-
 	</div>
+
+	<div class="container">
+		<footer class="row row-cols-5 py-5 my-5 border-top">
+			<div class="col">
+				<a href="/MVCFilmSite"
+					class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+					<svg class="bi me-2" width="40" height="32">
+						<use xlink:href="#bootstrap" /></svg>
+				</a>
+				<p class="text-muted">&copy; 2022</p>
+			</div>
+
+			<div class="col"></div>
+
+			<div class="col">
+				<h5>Search</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="searchId.do"
+						class="nav-link p-0 text-muted">Film by ID</a></li>
+					<li class="nav-item mb-2"><a href="searchKeyword.do"
+						class="nav-link p-0 text-muted">Film by Keyword</a></li>
+				</ul>
+			</div>
+
+			<div class="col">
+				<h5>Add</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="addFilm.do"
+						class="nav-link p-0 text-muted">New Film</a></li>
+					<li class="nav-item mb-2"><a href="addActor.do"
+						class="nav-link p-0 text-muted">New Actor</a></li>
+				</ul>
+			</div>
+
+			<div class="col">
+				<h5>About</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="about.do"
+						class="nav-link p-0 text-muted">Team</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

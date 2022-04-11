@@ -18,7 +18,6 @@
 </head>
 <body>
 	<div class="container">
-
 		<nav class="navbar navbar-expand-lg navbar-light"
 			style="background-color: #e3f2fd;">
 			<div class="container-fluid">
@@ -41,31 +40,41 @@
 								<li><a class="dropdown-item" href="searchKeyword.do">Film
 										By Keyword</a></li>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
-								Film</a></li>
-						<li class="nav-item"><a class="nav-link" href="addActor.do">Add
-								Actor</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Add New</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="addFilm.do">Film</a></li>
+								<li><a class="dropdown-item" href="addActor.do">Actor</a></li>
+							</ul></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-		
+
 		<c:if test="${not empty result}">
-		<div class="alert alert-success" role="alert">${result}</div>
+			<div class="alert alert-success" role="alert">${result}</div>
 		</c:if>
-		<div class="px-4 py-5 my-5 text-center">
-			<!-- <img class="d-block mx-auto mb-4"
-				src="" alt="" width="72"
-				height="57"> -->
-			<h1 class="display-5 fw-bold">We have films</h1>
-			<div class="col-lg-6 mx-auto">
-				<p class="lead mb-4">Search our film library, add new films and
-					more!</p>
-				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-					<a href="searchId.do"><button type="button"
-							class="btn btn-primary btn-lg px-4 gap-3">Search</button></a> <a
-						href="addFilm.do"><button type="button"
-							class="btn btn-outline-secondary btn-lg px-4">Add New</button></a>
+
+		<div class="container col-xxl-8 px-4 py-5">
+			<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+				<div class="col-10 col-sm-8 col-lg-6">
+					<img
+						src="https://images.unsplash.com/photo-1485095329183-d0797cdc5676?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+						class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+						width="700" height="500" loading="lazy">
+				</div>
+				<div class="col-lg-6">
+					<h1 class="display-5 fw-bold lh-1 mb-3">We have films</h1>
+					<p class="lead">Search our film library, add new films and
+						more!</p>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+						<a href="searchId.do"><button type="button"
+								class="btn btn-primary btn-lg px-4 gap-3">Search</button></a> <a
+							href="addFilm.do"><button type="button"
+								class="btn btn-outline-secondary btn-lg px-4">Add New</button></a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -75,7 +84,7 @@
 	<div class="container">
 		<footer class="row row-cols-5 py-5 my-5 border-top">
 			<div class="col">
-				<a href="/"
+				<a href="/MVCFilmSite"
 					class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 					<svg class="bi me-2" width="40" height="32">
 						<use xlink:href="#bootstrap" /></svg>
@@ -96,17 +105,19 @@
 			</div>
 
 			<div class="col">
-				<h5>Films</h5>
+				<h5>Add</h5>
 				<ul class="nav flex-column">
 					<li class="nav-item mb-2"><a href="addFilm.do"
-						class="nav-link p-0 text-muted">Add New</a></li>
+						class="nav-link p-0 text-muted">New Film</a></li>
+					<li class="nav-item mb-2"><a href="addActor.do"
+						class="nav-link p-0 text-muted">New Actor</a></li>
 				</ul>
 			</div>
 
 			<div class="col">
 				<h5>About</h5>
 				<ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="/MVCFilmSite"
+					<li class="nav-item mb-2"><a href="about.do"
 						class="nav-link p-0 text-muted">Team</a></li>
 				</ul>
 			</div>

@@ -1,4 +1,5 @@
 package com.skilldistillery.mvcfilmsite.controllers;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,9 +52,7 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "searchKeyword.do",
-					params = "keyword",
-					method = RequestMethod.POST)
+	@RequestMapping(path = "searchKeyword.do", params = "keyword", method = RequestMethod.POST)
 
 	public ModelAndView searchFilmByKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
@@ -69,7 +68,7 @@ public class FilmController {
 		Integer filmIntId = Integer.valueOf(filmId);
 		Film film = filmDao.findFilmById(filmIntId);
 		mv.addObject("film", film);
-	//	mv.addObject("actors", filmDao.findActorsByFilmId(film.getId()));
+		// mv.addObject("actors", filmDao.findActorsByFilmId(film.getId()));
 		mv.setViewName("WEB-INF/showFilm.jsp");
 		return mv;
 	}
@@ -83,11 +82,11 @@ public class FilmController {
 		mv.setViewName("WEB-INF/editFilm.jsp");
 		return mv;
 	}
-	
-	@RequestMapping(path = "updateFilm.do", 
-					params = {"filmId", "filmTitle", "filmDescription", "filmRating", "filmReleaseYear"}, 
-					method = RequestMethod.GET)
-	public ModelAndView editFilmPost(String filmId, String filmTitle, String filmDescription, String filmRating, String filmReleaseYear) {
+
+	@RequestMapping(path = "updateFilm.do", params = { "filmId", "filmTitle", "filmDescription", "filmRating",
+			"filmReleaseYear" }, method = RequestMethod.GET)
+	public ModelAndView editFilmPost(String filmId, String filmTitle, String filmDescription, String filmRating,
+			String filmReleaseYear) {
 		ModelAndView mv = new ModelAndView();
 		Integer filmIntId = Integer.valueOf(filmId);
 		Integer filmYear = Integer.valueOf(filmReleaseYear);
@@ -102,18 +101,18 @@ public class FilmController {
 		mv.setViewName("WEB-INF/showFilm.jsp");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
 	public ModelAndView addFilmGet() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/addFilm.jsp");
 		return mv;
 	}
-	
-	@RequestMapping(path = "addFilm.do", 
-			params = {"filmTitle", "filmDescription", "filmReleaseYear", "filmRating"}, 
-			method = RequestMethod.POST)
-	public ModelAndView addFilmPost(String filmTitle, String filmDescription, String filmReleaseYear, String filmRating) {
+
+	@RequestMapping(path = "addFilm.do", params = { "filmTitle", "filmDescription", "filmReleaseYear",
+			"filmRating" }, method = RequestMethod.POST)
+	public ModelAndView addFilmPost(String filmTitle, String filmDescription, String filmReleaseYear,
+			String filmRating) {
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film();
 		film.setTitle(filmTitle);
@@ -133,11 +132,9 @@ public class FilmController {
 		mv.setViewName("WEB-INF/addActor.jsp");
 		return mv;
 	}
-	
-	@RequestMapping(path = "addActor.do",  
-			params = {"firstName", "lastName"}, 
-			method = RequestMethod.POST)
-	public ModelAndView addActorPost(String firstName, String lastName){
+
+	@RequestMapping(path = "addActor.do", params = { "firstName", "lastName" }, method = RequestMethod.POST)
+	public ModelAndView addActorPost(String firstName, String lastName) {
 		ModelAndView mv = new ModelAndView();
 		Actor newActor = new Actor();
 		newActor.setFirstName(firstName);
@@ -147,30 +144,27 @@ public class FilmController {
 		mv.setViewName("WEB-INF/newActor.jsp");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "deleteFilm.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView deleteFilm(@RequestParam("filmId") String filmId) {
 		ModelAndView mv = new ModelAndView();
-		
-			int id = Integer.parseInt(filmId);
-			Film film = filmDao.findFilmById(id);
-			
-				if (film !=null) {
-			
-					if (filmDao.deleteFilm(film)) {
-						mv.addObject("result", "Movie was successfully deleted");
-						mv.setViewName("/WEB-INF/home.jsp");
-					}
-					
-				} else {
-					mv.addObject("result", "Movie was not deleted");
-					mv.setViewName("/WEB-INF/showFilm.jsp");				
-				} 
-			
+		int id = Integer.parseInt(filmId);
+		Film film = filmDao.findFilmById(id);
+		if (film != null) {
+			if (filmDao.deleteFilm(film)) {
+				mv.addObject("result", "Movie was successfully deleted");
+				mv.setViewName("/WEB-INF/home.jsp");
+			}
+		} else {
+			mv.addObject("result", "Movie was not deleted");
+			mv.setViewName("/WEB-INF/showFilm.jsp");
+		}
 		return mv;
-	
 	}
-	
-	
-	
+
+	@RequestMapping(path = { "/about" })
+	public String about() {
+		return "WEB-INF/about.jsp";
+	}
+
 }

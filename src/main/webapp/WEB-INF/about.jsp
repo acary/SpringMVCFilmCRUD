@@ -13,6 +13,7 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+
 <title>MVC Film Site</title>
 </head>
 <body>
@@ -51,15 +52,22 @@
 				</div>
 			</div>
 		</nav>
-		<br>
-		<h4>Search Films</h4>
-		<form action="searchId.do" method="post">
-			<label for="filmId" class="form-label">Enter Film ID</label> <small>(or
-				<a href="searchKeyword.do"> search by keyword</a>)
-			</small> <input type="text" class="form-control form-control-lg"
-				name="filmId" /> <input type="submit" class="btn btn-primary m-2"
-				value="Search" />
-		</form>
+
+		<c:if test="${not empty result}">
+			<div class="alert alert-success" role="alert">${result}</div>
+		</c:if>
+		<div class="px-4 py-5 my-5 text-center">
+			<h1 class="display-5 fw-bold">About</h1>
+			<div class="col-lg-8 mx-auto">
+				<p class="lead mb-4">Our team of full-stack web developers</p>
+				<div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+					<h5>Andy Cary</h5>
+					<h5>Henry Vo</h5>
+					<h5>Ving P</h5>
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 	<div class="container">
@@ -104,9 +112,11 @@
 			</div>
 		</footer>
 	</div>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>

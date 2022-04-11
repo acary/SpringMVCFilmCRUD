@@ -17,7 +17,6 @@
 </head>
 <body>
 	<div class="container">
-
 		<nav class="navbar navbar-expand-lg navbar-light"
 			style="background-color: #e3f2fd;">
 			<div class="container-fluid">
@@ -30,14 +29,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="searchId.do">Search By ID</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="searchKeyword.do">Search by Keyword</a></li>
-						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
-								Film</a></li>
-						<li class="nav-item"><a class="nav-link" href="addActor.do">Add
-								Actor</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Search </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="searchId.do">Film By
+										ID</a></li>
+								<li><a class="dropdown-item" href="searchKeyword.do">Film
+										By Keyword</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Add New</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="addFilm.do">Film</a></li>
+								<li><a class="dropdown-item" href="addActor.do">Actor</a></li>
+							</ul></li>
 					</ul>
 				</div>
 			</div>
@@ -59,7 +68,7 @@
 	<div class="container">
 		<footer class="row row-cols-5 py-5 my-5 border-top">
 			<div class="col">
-				<a href="/"
+				<a href="/MVCFilmSite"
 					class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 					<svg class="bi me-2" width="40" height="32">
 						<use xlink:href="#bootstrap" /></svg>
@@ -80,17 +89,19 @@
 			</div>
 
 			<div class="col">
-				<h5>Films</h5>
+				<h5>Add</h5>
 				<ul class="nav flex-column">
 					<li class="nav-item mb-2"><a href="addFilm.do"
-						class="nav-link p-0 text-muted">Add New</a></li>
+						class="nav-link p-0 text-muted">New Film</a></li>
+					<li class="nav-item mb-2"><a href="addActor.do"
+						class="nav-link p-0 text-muted">New Actor</a></li>
 				</ul>
 			</div>
 
 			<div class="col">
 				<h5>About</h5>
 				<ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="/MVCFilmSite"
+					<li class="nav-item mb-2"><a href="about.do"
 						class="nav-link p-0 text-muted">Team</a></li>
 				</ul>
 			</div>
