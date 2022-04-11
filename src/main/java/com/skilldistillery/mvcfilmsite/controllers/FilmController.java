@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.mvcfilmsite.data.FilmDAO;
+import com.skilldistillery.mvcfilmsite.entities.Actor;
 import com.skilldistillery.mvcfilmsite.entities.Film;
 
 @Controller
@@ -126,6 +127,27 @@ public class FilmController {
 		return mv;
 	}
 
+	@RequestMapping(path = "addActor.do", method = RequestMethod.GET)
+	public ModelAndView addActorGet() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/addActor.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "addActor.do",  
+			params = {"firstName", "lastName"}, 
+			method = RequestMethod.POST)
+	public ModelAndView addActorPost(String firstName, String lastName){
+		ModelAndView mv = new ModelAndView();
+		Actor newActor = new Actor();
+		newActor.setFirstName(firstName);
+		newActor.setLastName(lastName);
+		newActor = filmDao.createActor(newActor);
+		mv.addObject("newActor", newActor);
+		mv.setViewName("WEB-INF/newActor.jsp");
+		return mv;
+	}
+	
 	@RequestMapping(path = "deleteFilm.do", params = "filmId", method = RequestMethod.GET)
 	public ModelAndView deleteFilm(@RequestParam("filmId") String filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -148,4 +170,7 @@ public class FilmController {
 		return mv;
 	
 	}
+	
+	
+	
 }
