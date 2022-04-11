@@ -63,59 +63,18 @@
 					<p>Error. No actor created.</p>
 				</c:otherwise>
 			</c:choose>
-			<br> <br>
+			<br>
 			<form action="newActor.do" method="GET">
-				Please enter actor ID to delete: <input class="input" type="text"
-					name="id"> <input class="submit" type="submit"
+				Please enter actor ID to delete: <input class="input form-control form-control-lg" type="text"
+					name="id"> <input class="submit btn btn-primary m-2 disabled" type="submit"
 					value="Delete Actor" />
 			</form>
 			<br>
 			<form action="newActor.do" method="GET">
-				Please enter actor ID to edit fields: <input class="input"
-					type="text" name="id"> <input class="submit" type="submit"
+				Please enter actor ID to edit fields: <input class="input form-control form-control-lg"
+					type="text" name="id"> <input class="submit btn btn-primary m-2 disabled" type="submit"
 					value="Edit Actor" />
 			</form>
-		</div>
-
-		<div class="container">
-			<footer class="row row-cols-5 py-5 my-5 border-top">
-				<div class="col">
-					<a href="/"
-						class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-						<svg class="bi me-2" width="40" height="32">
-						<use xlink:href="#bootstrap" /></svg>
-					</a>
-					<p class="text-muted">&copy; 2022</p>
-				</div>
-
-				<div class="col"></div>
-
-				<div class="col">
-					<h5>Search</h5>
-					<ul class="nav flex-column">
-						<li class="nav-item mb-2"><a href="searchId.do"
-							class="nav-link p-0 text-muted">Film by ID</a></li>
-						<li class="nav-item mb-2"><a href="searchKeyword.do"
-							class="nav-link p-0 text-muted">Film by Keyword</a></li>
-					</ul>
-				</div>
-
-				<div class="col">
-					<h5>Films</h5>
-					<ul class="nav flex-column">
-						<li class="nav-item mb-2"><a href="addFilm.do"
-							class="nav-link p-0 text-muted">Add New</a></li>
-					</ul>
-				</div>
-
-				<div class="col">
-					<h5>About</h5>
-					<ul class="nav flex-column">
-						<li class="nav-item mb-2"><a href="/MVCFilmSite"
-							class="nav-link p-0 text-muted">Team</a></li>
-					</ul>
-				</div>
-			</footer>
 		</div>
 
 		<div class="container">
