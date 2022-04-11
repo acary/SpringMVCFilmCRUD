@@ -29,10 +29,16 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="searchId.do">Search By ID</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="searchKeyword.do">Search by Keyword</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Search </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="searchId.do">Film By
+										ID</a></li>
+								<li><a class="dropdown-item" href="searchKeyword.do">Film
+										By Keyword</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
 								Film</a></li>
 					</ul>
@@ -45,21 +51,27 @@
 			<input type="hidden" id="filmId" name="filmId" value="${film.id}">
 			<div class="mb-3">
 				<label for="filmTitle" class="form-label">Title</label> <input
-					type="text" class="form-control" name="filmTitle" id="filmTitle" placeholder="${film.title}">
-				<div id="filmTitleHelp" class="form-text">Update the film
-					title</div>
+					type="text" class="form-control" name="filmTitle" id="filmTitle"
+					placeholder="${film.title}">
+				<div id="filmTitleHelp" class="form-text">${film.title}</div>
 			</div>
 			<div class="mb-3">
 				<label for="filmDescription" class="form-label">Description</label>
-				<input type="text" class="form-control" name="filmDescription" id="filmDescription" placeholder="${film.description}">
+				<input type="text" class="form-control" name="filmDescription"
+					id="filmDescription" placeholder="${film.description}">
+					<div id="filmDescriptionHelp" class="form-text">${film.description}</div>
 			</div>
 			<div class="mb-3">
 				<label for="filmRating" class="form-label">Rating</label> <input
-					type="text" class="form-control" name="filmRating" id="filmRating" placeholder="${film.rating}">
+					type="text" class="form-control" name="filmRating" id="filmRating"
+					placeholder="${film.rating}">
+				<div id="filmRatingHelp" class="form-text">${film.rating}</div>
 			</div>
 			<div class="mb-3">
-				<label for="filmReleaseYear" class="form-label">Release Year</label> <input
-					type="text" class="form-control" name="filmReleaseYear" id="filmReleaseYear" placeholder="${film.releaseYear}">
+				<label for="filmReleaseYear" class="form-label">Release Year</label>
+				<input type="text" class="form-control" name="filmReleaseYear"
+					id="filmReleaseYear" placeholder="${film.releaseYear}">
+					<div id="filmReleaseYearHelp" class="form-text">${film.releaseYear}</div>
 			</div>
 			<input type="submit" class="btn btn-primary">
 		</form>

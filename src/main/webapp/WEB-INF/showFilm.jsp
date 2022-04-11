@@ -29,16 +29,23 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="searchId.do">Search By ID</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="searchKeyword.do">Search by Keyword</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Search </a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="searchId.do">Film By
+										ID</a></li>
+								<li><a class="dropdown-item" href="searchKeyword.do">Film
+										By Keyword</a></li>
+							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="addFilm.do">Add
 								Film</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+		<br>
 		<h4>Film Details</h4>
 
 		<c:choose>
@@ -59,13 +66,13 @@
 						<p class="card-text">Actors:</p>
 						<ul>
 							<c:forEach var="actor" items="${film.actors}">
-								<li>${actor.firstName} ${actor.lastName}</li>
+								<li>${actor.firstName}&nbsp;${actor.lastName}</li>
 							</c:forEach>
 						</ul>
 						<hr>
 						<a href="deleteFilm.do?filmId=${film.id}" class="card-link">Delete</a>
 						<a href="editFilm.do?filmId=${film.id}" class="card-link">Edit</a>
-						</div>
+					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
