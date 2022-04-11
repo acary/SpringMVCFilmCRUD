@@ -53,23 +53,25 @@
 				<label for="filmTitle" class="form-label">Title</label> <input
 					type="text" class="form-control" name="filmTitle" id="filmTitle"
 					placeholder="${film.title}">
-				<div id="filmTitleHelp" class="form-text">Update the film
-					title</div>
+				<div id="filmTitleHelp" class="form-text">${film.title}</div>
 			</div>
 			<div class="mb-3">
 				<label for="filmDescription" class="form-label">Description</label>
 				<input type="text" class="form-control" name="filmDescription"
 					id="filmDescription" placeholder="${film.description}">
+					<div id="filmDescriptionHelp" class="form-text">${film.description}</div>
 			</div>
 			<div class="mb-3">
 				<label for="filmRating" class="form-label">Rating</label> <input
 					type="text" class="form-control" name="filmRating" id="filmRating"
 					placeholder="${film.rating}">
+				<div id="filmRatingHelp" class="form-text">${film.rating}</div>
 			</div>
 			<div class="mb-3">
 				<label for="filmReleaseYear" class="form-label">Release Year</label>
 				<input type="text" class="form-control" name="filmReleaseYear"
 					id="filmReleaseYear" placeholder="${film.releaseYear}">
+					<div id="filmReleaseYearHelp" class="form-text">${film.releaseYear}</div>
 			</div>
 			<input type="submit" class="btn btn-primary">
 		</form>
